@@ -31,7 +31,7 @@ header.header-style {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 85px;
+  height: 6rem;
   background-color: #000000;
 }
 header.header-style span.span-principal {
@@ -60,15 +60,16 @@ header.header-style div.nav-style div.burger-menu button.burger-menu-button {
   border: none;
 }
 header.header-style div.nav-style div.burger-menu button.burger-menu-button img {
-  width: 25px;
+  width: 30px;
 }
 header.header-style div.nav-style div.burger-menu nav.nav-bar {
   display: flex;
   align-items: center;
   opacity: 0;
   visibility: hidden;
-  top: 70px;
+  top: 6rem;
   bottom: 0;
+  left: 0;
   width: 50%;
   justify-content: center;
   position: absolute;
@@ -131,6 +132,7 @@ header.header-style div.nav-style div.burger-menu nav.nav-bar.visible {
 header.header-style div.nav-style div.logo-style {
   display: flex;
   justify-content: center;
+  width: 9rem;
 }
 header.header-style div.nav-style div.logo-style a.logo-style-link {
   display: flex;
@@ -139,7 +141,7 @@ header.header-style div.nav-style div.logo-style a.logo-style-link {
 }
 header.header-style div.nav-style div.logo-style a.logo-style-link img.logo-style-link__img {
   text-align: center;
-  max-width: 7rem;
+  max-width: 9rem;
 }
 header.header-style div.nav-style div.carrito-cont {
   display: flex;
@@ -155,7 +157,7 @@ header.header-style div.nav-style div.carrito-cont button.carrito-button {
   cursor: pointer;
 }
 header.header-style div.nav-style div.carrito-cont button.carrito-button img.carrito-button__img {
-  width: 30px;
+  width: 35px;
 }
 
 /*# sourceMappingURL=style.css.map */

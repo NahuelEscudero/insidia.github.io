@@ -3,7 +3,7 @@ const navBar = document.querySelector("#navBar");
 const cerrarBurger = document.querySelector("#burger-menu__cerrar");
 
 buttonBurger.addEventListener("click", () => {
-    navBar.classList.add("visible");
+    navBar.classList.toggle("visible");
 });
 
 cerrarBurger.addEventListener("click", () => {

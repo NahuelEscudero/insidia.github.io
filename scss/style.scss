@@ -62,12 +62,15 @@ body.principal-cont {
     grid-template-rows: auto auto;
 }
 
+//Estilos del HEADER
+
 header.header-style {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 85px;
+    height: 6rem;
     background-color: $color-primary;
+    //SPAN
     span.span-principal {
         display: flex;
         justify-content: center;
@@ -78,23 +81,21 @@ header.header-style {
         font-weight: $font-widht-semibold;
         height: 25%;
     }
+    // NAV (MENU HAMBURGESA, LOGO Y CARRITO)
     div.nav-style {
         display: flex;
         align-items: center;
         flex-direction: row;
         height: 75%;
         justify-content: space-around;
-        // width: 100%;
-
         div.burger-menu {
             text-align: center;
-            // width: 30%;
             button.burger-menu-button {
                 background-color: transparent;
                 cursor: pointer;
                 border: none;
                 img {
-                    width: 25px;
+                    width: 30px;
                 }
             }
             nav.nav-bar {
@@ -102,8 +103,9 @@ header.header-style {
                 align-items: center;
                 opacity: 0;
                 visibility: hidden;
-                top: 70px;
+                top: 6rem;
                 bottom: 0;
+                left: 0;
                 width: 50%;
                 justify-content: center;
                 position: absolute;
@@ -165,16 +167,16 @@ header.header-style {
             }
         }
         div.logo-style {
-            // width: 100%;
             display: flex;
             justify-content: center;
+            width: 9rem;
             a.logo-style-link {
                 display: flex;
                 height: 100%;
                 align-items: center;
                 img.logo-style-link__img {
                     text-align: center;
-                    max-width: 7rem;
+                    max-width: 9rem;
                 }
             }
         }
@@ -191,7 +193,7 @@ header.header-style {
                 border: none;
                 cursor: pointer;
                 img.carrito-button__img {
-                    width: 30px;
+                    width: 35px;
                 }
             }
         }
