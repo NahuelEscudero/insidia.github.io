@@ -89,12 +89,15 @@
         </span>
         <div id="nav-cont" class="nav-style">
             <div class="burger-menu">
-                <button id="burgerButton" class="burger-menu-button"><img src="./images/emojis/menu-burger.png" alt="Menu" class="burger-menu-button__img"></button>
+                <button id="burgerButton" class="burger-menu-button"><img src="./images/emojis/BOTON HAMBURGUESA.svg" alt="Menu" class="burger-menu-button__img"></button>
                 <nav id="navBar" class="nav-bar">
                     <ul class="burger-menu-list">
-                        <li class="burger-menu-list__item"><a href="#">Coleccion</a></li>
-                        <li class="burger-menu-list__item"><a href="#">Nosotros</a></li>
-                        <li class="burger-menu-list__item"><a href="#">Locales</a></li>
+                        <li id="burger-menu__cerrar" class="burger-menu-list__cruz"><button class="button-cerrar"><img class="button-cerrar__img" src="./images/emojis/CRUZ CERRAR.svg" alt="Cerrar"></button></li>
+                        <li class="burger-menu-list__item"><a href="#">COLECCION</a></li>
+                        <li class="burger-menu-list__item"><a href="#">NOSOTROS</a></li>
+                        <li class="burger-menu-list__item"><a href="#">LOCALES</a></li>
+                        <li class="burger-menu-list__busqueda"><button class="emoji-button"><img src="./images/emojis/BUSQUEDA.png" alt="Busqueda" class="emoji-button__img"></button></li>
+                        <li class="burger-menu-list__loggin"><button class="emoji-button"><img src="./images/emojis/LOGGIN.png" alt="Loggin" class="emoji-button__img"></button></li>
                     </ul>
                 </nav>
             </div>
@@ -103,14 +106,14 @@
                     <img src="./images/logotipos/LOGO BLANCO.png" alt="Logo INSIDIA" class="logo-style-link__img">
                 </a>
             </div>
-            <div id="usuario-buscar-carrito" class="emojis">
-                <button class="emojis-button"><img src="./images/emojis/BUSQUEDA.png" alt="Busqueda" class="emojis-button__img"></button>
-                <button class="emojis-button"><img src="./images/emojis/LOGGIN.png" alt="Loggin" class="emojis-button__img"></button>
-                <button class="emojis-button"><img src="./images/emojis/CARRITO.png" alt="Carrito" class="emojis-button__img"></button>
+            <div id="carrito-cont" class="carrito-cont">
+                <button class="carrito-button"><img src="./images/emojis/CARRITO.png" alt="Carrito" class="carrito-button__img"></button>
             </div>
         </div>
     </header>
     <main class="main-cont">
+        <div class="product-card"></div>
+
     </main>
     <script src="./js/main.js"></script>
 </body>

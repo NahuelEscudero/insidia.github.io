@@ -31,7 +31,7 @@ header.header-style {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 70px;
+  height: 85px;
   background-color: #000000;
 }
 header.header-style span.span-principal {
@@ -41,49 +41,94 @@ header.header-style span.span-principal {
   color: #FFFFFF;
   background-color: #5B5A5B;
   font-size: 12px;
-  height: 20%;
+  font-weight: 600;
+  height: 25%;
 }
 header.header-style div.nav-style {
   display: flex;
   align-items: center;
   flex-direction: row;
-  height: 80%;
+  height: 75%;
+  justify-content: space-around;
 }
 header.header-style div.nav-style div.burger-menu {
   text-align: center;
-  width: 30%;
 }
 header.header-style div.nav-style div.burger-menu button.burger-menu-button {
+  background-color: transparent;
   cursor: pointer;
+  border: none;
 }
 header.header-style div.nav-style div.burger-menu button.burger-menu-button img {
-  width: 20px;
+  width: 25px;
 }
 header.header-style div.nav-style div.burger-menu nav.nav-bar {
+  display: flex;
+  align-items: center;
   opacity: 0;
   visibility: hidden;
   top: 70px;
   bottom: 0;
+  width: 50%;
+  justify-content: center;
   position: absolute;
   background-color: #000000;
-  padding: 2rem;
   box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
 }
 header.header-style div.nav-style div.burger-menu nav.nav-bar ul.burger-menu-list {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  align-items: center;
+  gap: 50px;
+  margin-top: 1.2rem;
+}
+header.header-style div.nav-style div.burger-menu nav.nav-bar ul.burger-menu-list li.burger-menu-list__cruz {
+  position: absolute;
+  top: 30px;
+  right: 20px;
+}
+header.header-style div.nav-style div.burger-menu nav.nav-bar ul.burger-menu-list li.burger-menu-list__cruz button.button-cerrar {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+header.header-style div.nav-style div.burger-menu nav.nav-bar ul.burger-menu-list li.burger-menu-list__cruz button.button-cerrar img.button-cerrar__img {
+  width: 27px;
 }
 header.header-style div.nav-style div.burger-menu nav.nav-bar ul.burger-menu-list li.burger-menu-list__item a {
   color: #FFFFFF;
+}
+header.header-style div.nav-style div.burger-menu nav.nav-bar ul.burger-menu-list li.burger-menu-list__busqueda {
+  width: fit-content;
+  position: absolute;
+  top: 30px;
+  left: 20px;
+}
+header.header-style div.nav-style div.burger-menu nav.nav-bar ul.burger-menu-list li.burger-menu-list__busqueda button.emoji-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+header.header-style div.nav-style div.burger-menu nav.nav-bar ul.burger-menu-list li.burger-menu-list__busqueda button.emoji-button img.emoji-button__img {
+  width: 30px;
+}
+header.header-style div.nav-style div.burger-menu nav.nav-bar ul.burger-menu-list li.burger-menu-list__loggin {
+  width: fit-content;
+  margin-top: 2rem;
+}
+header.header-style div.nav-style div.burger-menu nav.nav-bar ul.burger-menu-list li.burger-menu-list__loggin button.emoji-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+header.header-style div.nav-style div.burger-menu nav.nav-bar ul.burger-menu-list li.burger-menu-list__loggin button.emoji-button img.emoji-button__img {
+  width: 30px;
 }
 header.header-style div.nav-style div.burger-menu nav.nav-bar.visible {
   opacity: 1;
   visibility: visible;
 }
 header.header-style div.nav-style div.logo-style {
-  width: 35%;
-  height: 100%;
   display: flex;
   justify-content: center;
 }
@@ -96,22 +141,21 @@ header.header-style div.nav-style div.logo-style a.logo-style-link img.logo-styl
   text-align: center;
   max-width: 7rem;
 }
-header.header-style div.nav-style div.emojis {
+header.header-style div.nav-style div.carrito-cont {
   display: flex;
   justify-content: center;
   gap: 10px;
   align-self: center;
   justify-self: center;
-  width: 35%;
   text-align: center;
 }
-header.header-style div.nav-style div.emojis button.emojis-button {
+header.header-style div.nav-style div.carrito-cont button.carrito-button {
   background-color: transparent;
   border: none;
   cursor: pointer;
 }
-header.header-style div.nav-style div.emojis button.emojis-button img.emojis-button__img {
-  width: 20px;
+header.header-style div.nav-style div.carrito-cont button.carrito-button img.carrito-button__img {
+  width: 30px;
 }
 
 /*# sourceMappingURL=style.css.map */
