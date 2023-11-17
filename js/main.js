@@ -25,31 +25,31 @@ const remeras = [
     },
     {
         id: 2,
-        imagen: "./images/productos/Remeras/REMERA ENERGÍAS RENOVABLES [ NEGRO ].png",
+        imagen: "./images/productos/remeras/REMERA ENERGÍAS RENOVABLES [ NEGRO ].png",
         nombre: "REMERA ENERGÍAS RENOVABLES [ NEGRO ]",
         precio: "$22100"
     },
     {
         id: 3,
-        imagen: "./images/productos/Remeras/REMERA SUNWAVES [ LS08 ].png",
+        imagen: "./images/productos/remeras/REMERA SUNWAVES [ LS08 ].png",
         nombre: "REMERA SUNWAVES [ LS08 ]",
         precio: "$17680"
     },
     {
         id: 4,
-        imagen: "./images/productos/Remeras/REMERA SUNWAVES [ LS15 ].png",
+        imagen: "./images/productos/remeras/REMERA SUNWAVES [ LS15 ].png",
         nombre: "REMERA SUNWAVES [ LS15 ]",
         precio: "$22100"
     },
     {
         id: 5,
-        imagen: "./images/productos/Remeras/REMERON MEGA [ GRIS ].png",
+        imagen: "./images/productos/remeras/REMERON MEGA [ GRIS ].png",
         nombre: "REMERON MEGA [ GRIS ]",
         precio: "$24200"
     },
     {
         id: 6,
-        imagen: "./images/productos/Remeras/REMERON MEGA [ NEGRO ].png",
+        imagen: "./images/productos/remeras/REMERON MEGA [ NEGRO ].png",
         nombre: "REMERON MEGA [ NEGRO ]", 
         precio: "$24200"
     }
