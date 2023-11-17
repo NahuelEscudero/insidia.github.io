@@ -19,12 +19,13 @@ a {
 }
 
 body.principal-cont {
-  display: grid;
   width: 100%;
-  height: 100vh;
-  grid-area: "header" "main";
-  grid-template-columns: 1fr;
-  grid-template-rows: auto auto;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  display: none;
 }
 
 header.header-style {
@@ -158,6 +159,75 @@ header.header-style div.nav-style div.carrito-cont button.carrito-button {
 }
 header.header-style div.nav-style div.carrito-cont button.carrito-button img.carrito-button__img {
   width: 35px;
+}
+header.header-style div.nav-style div.carrito-cont button.carrito-button span.suma-carrito {
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 600;
+  border-color: #F6F3F9;
+}
+
+main.main-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+main.main-cont h2 {
+  margin-top: 20px;
+}
+main.main-cont div.product-card {
+  width: 10rem;
+  border-radius: 20px;
+  background-color: #F6F3F9;
+}
+main.main-cont div.product-card h4.product-card__title {
+  position: absolute;
+  font-size: 14px;
+  width: 9.5rem;
+  text-align: center;
+}
+main.main-cont div.product-card img.product-card__img {
+  width: 100%;
+}
+main.main-cont div.product-card div.product-card-add {
+  display: flex;
+  width: 100%;
+  height: 55px;
+  align-items: center;
+  background-color: #000000;
+  justify-content: center;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+main.main-cont div.product-card div.product-card-add p.product-card-add__precio {
+  font-weight: 800;
+  font-size: 18px;
+  color: #FFFFFF;
+  width: 70%;
+  text-align: center;
+}
+main.main-cont div.product-card div.product-card-add button.product-card-add__button {
+  width: auto;
+  all: initial;
+  background-color: #5B5A5B;
+  padding: auto;
+  width: 30%;
+  height: 100%;
+  border-bottom-right-radius: 17px;
+  text-align: center;
+  cursor: pointer;
+}
+main.main-cont div.product-card div.product-card-add button.product-card-add__button img.product-card-add__button-img {
+  width: 30px;
+}
+footer.footer-cont {
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+}
+footer.footer-cont p.footer-cont__text {
+  color: #5B5A5B;
 }
 
 /*# sourceMappingURL=style.css.map */
