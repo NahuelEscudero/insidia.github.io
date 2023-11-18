@@ -73,6 +73,8 @@ header.header-style {
     width: 100%;
     height: 6rem;
     background-color: $color-primary;
+    position: fixed;
+    z-index: 1;
     //SPAN
     span.span-principal {
         display: flex;
@@ -186,26 +188,29 @@ header.header-style {
             }
         }
         //CARRITO
-        div.carrito-cont {
+        
+        button.carrito-button {
             display: flex;
-            justify-content: center;
-            gap: 10px;
-            align-self: center;
-            justify-self: center;
-            text-align: center;
-            button.carrito-button {
-                background-color: transparent;
-                border: none;
-                cursor: pointer;
-                img.carrito-button__img {
-                    width: 35px;
-                }
-                span.suma-carrito {
-                    color: $color-secondary;
-                    font-size: $font-size-xs;
-                    font-weight: $font-widht-semibold;
-                    border-color: $color-quaternary;
-                }
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            img.carrito-button__img-white {
+                width: 35px;
+            }
+            p.suma-carrito {
+                align-self: flex-end;
+                color: $color-secondary;
+                font-size: $font-size-xs;
+                font-weight: $font-widht-semibold;
+                border-color: $color-quaternary;
+            }
+            div.cont-carrito {
+                visibility: hidden;
+                opacity: 0;
+            }
+            div.cont-carrito__visible {
+                visibility: visible;
+                opacity: 1;
             }
         }
     }
@@ -219,7 +224,7 @@ main.main-cont {
     align-items: center;
     gap: 3rem;
     h2 {
-        margin-top: 20px;
+        margin-top: 120px;
     }
     div.product-card {
         width: 10rem;
@@ -257,18 +262,29 @@ main.main-cont {
                 padding: auto;
                 width: 30%;
                 height: 100%;
-                border-bottom-right-radius: 17px;
+                border-bottom-right-radius: 13px;
                 text-align: center;
                 cursor: pointer;
-                img.product-card-add__button-img {
+                img.product-card-add__button-img-white {
+                    width: 30px;
+                }
+                img.product-card-add__button-img-black {
+                    display: none;
                     width: 30px;
                 }
             }
             button.product-card-add__button:hover {
+                background-color: $color-quaternary;
+                img.product-card-add__button-img-white {
+                    display: none;
+                    width: 30px;
+                }
+                img.product-card-add__button-img-black{
+                    display: initial;
+                    justify-self: center;
+                }
             }
         }
-        
-        
     }
 }
 

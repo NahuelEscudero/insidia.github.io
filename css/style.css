@@ -34,6 +34,8 @@ header.header-style {
   width: 100%;
   height: 6rem;
   background-color: #000000;
+  position: fixed;
+  z-index: 1;
 }
 header.header-style span.span-principal {
   display: flex;
@@ -144,27 +146,29 @@ header.header-style div.nav-style div.logo-style a.logo-style-link img.logo-styl
   text-align: center;
   max-width: 9rem;
 }
-header.header-style div.nav-style div.carrito-cont {
+header.header-style div.nav-style button.carrito-button {
   display: flex;
-  justify-content: center;
-  gap: 10px;
-  align-self: center;
-  justify-self: center;
-  text-align: center;
-}
-header.header-style div.nav-style div.carrito-cont button.carrito-button {
   background-color: transparent;
   border: none;
   cursor: pointer;
 }
-header.header-style div.nav-style div.carrito-cont button.carrito-button img.carrito-button__img {
+header.header-style div.nav-style button.carrito-button img.carrito-button__img-white {
   width: 35px;
 }
-header.header-style div.nav-style div.carrito-cont button.carrito-button span.suma-carrito {
+header.header-style div.nav-style button.carrito-button p.suma-carrito {
+  align-self: flex-end;
   color: #FFFFFF;
   font-size: 12px;
   font-weight: 600;
   border-color: #F6F3F9;
+}
+header.header-style div.nav-style button.carrito-button div.cont-carrito {
+  visibility: hidden;
+  opacity: 0;
+}
+header.header-style div.nav-style button.carrito-button div.cont-carrito__visible {
+  visibility: visible;
+  opacity: 1;
 }
 
 main.main-cont {
@@ -174,7 +178,7 @@ main.main-cont {
   gap: 3rem;
 }
 main.main-cont h2 {
-  margin-top: 20px;
+  margin-top: 120px;
 }
 main.main-cont div.product-card {
   width: 10rem;
@@ -214,13 +218,29 @@ main.main-cont div.product-card div.product-card-add button.product-card-add__bu
   padding: auto;
   width: 30%;
   height: 100%;
-  border-bottom-right-radius: 17px;
+  border-bottom-right-radius: 13px;
   text-align: center;
   cursor: pointer;
 }
-main.main-cont div.product-card div.product-card-add button.product-card-add__button img.product-card-add__button-img {
+main.main-cont div.product-card div.product-card-add button.product-card-add__button img.product-card-add__button-img-white {
   width: 30px;
 }
+main.main-cont div.product-card div.product-card-add button.product-card-add__button img.product-card-add__button-img-black {
+  display: none;
+  width: 30px;
+}
+main.main-cont div.product-card div.product-card-add button.product-card-add__button:hover {
+  background-color: #F6F3F9;
+}
+main.main-cont div.product-card div.product-card-add button.product-card-add__button:hover img.product-card-add__button-img-white {
+  display: none;
+  width: 30px;
+}
+main.main-cont div.product-card div.product-card-add button.product-card-add__button:hover img.product-card-add__button-img-black {
+  display: initial;
+  justify-self: center;
+}
+
 footer.footer-cont {
   position: fixed;
   bottom: 5px;
