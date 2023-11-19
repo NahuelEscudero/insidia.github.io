@@ -71,9 +71,10 @@ header.header-style div.nav-style div.burger-menu nav.nav-bar {
   opacity: 0;
   visibility: hidden;
   top: 6rem;
-  bottom: 0;
+  margin: 0;
   left: 0;
   width: 50%;
+  height: calc(100vh - 6rem);
   justify-content: center;
   position: absolute;
   background-color: #000000;
@@ -83,30 +84,33 @@ header.header-style div.nav-style div.burger-menu nav.nav-bar ul.burger-menu-lis
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: fit-content;
+  width: fit-content;
   gap: 50px;
-  margin-top: 1.2rem;
+  margin-bottom: 4rem;
 }
 header.header-style div.nav-style div.burger-menu nav.nav-bar ul.burger-menu-list li.burger-menu-list__cruz {
   position: absolute;
-  top: 30px;
-  right: 20px;
+  width: 1.5rem;
+  top: 1rem;
+  right: 1.3rem;
 }
 header.header-style div.nav-style div.burger-menu nav.nav-bar ul.burger-menu-list li.burger-menu-list__cruz button.button-cerrar {
+  cursor: pointer;
   background-color: transparent;
   border: none;
-  cursor: pointer;
 }
 header.header-style div.nav-style div.burger-menu nav.nav-bar ul.burger-menu-list li.burger-menu-list__cruz button.button-cerrar img.button-cerrar__img {
-  width: 27px;
+  width: 100%;
 }
 header.header-style div.nav-style div.burger-menu nav.nav-bar ul.burger-menu-list li.burger-menu-list__item a {
   color: #FFFFFF;
 }
 header.header-style div.nav-style div.burger-menu nav.nav-bar ul.burger-menu-list li.burger-menu-list__busqueda {
-  width: fit-content;
   position: absolute;
-  top: 30px;
-  left: 20px;
+  width: 1.8rem;
+  top: 1rem;
+  left: 1.3rem;
 }
 header.header-style div.nav-style div.burger-menu nav.nav-bar ul.burger-menu-list li.burger-menu-list__busqueda button.emoji-button {
   background-color: transparent;
@@ -114,19 +118,20 @@ header.header-style div.nav-style div.burger-menu nav.nav-bar ul.burger-menu-lis
   cursor: pointer;
 }
 header.header-style div.nav-style div.burger-menu nav.nav-bar ul.burger-menu-list li.burger-menu-list__busqueda button.emoji-button img.emoji-button__img {
-  width: 30px;
+  width: 100%;
 }
 header.header-style div.nav-style div.burger-menu nav.nav-bar ul.burger-menu-list li.burger-menu-list__loggin {
-  width: fit-content;
-  margin-top: 2rem;
+  position: absolute;
+  bottom: 4rem;
+  width: 2.5rem;
 }
 header.header-style div.nav-style div.burger-menu nav.nav-bar ul.burger-menu-list li.burger-menu-list__loggin button.emoji-button {
+  cursor: pointer;
   background-color: transparent;
   border: none;
-  cursor: pointer;
 }
 header.header-style div.nav-style div.burger-menu nav.nav-bar ul.burger-menu-list li.burger-menu-list__loggin button.emoji-button img.emoji-button__img {
-  width: 30px;
+  width: 100%;
 }
 header.header-style div.nav-style div.burger-menu nav.nav-bar.visible {
   opacity: 1;
@@ -155,7 +160,7 @@ header.header-style div.nav-style button.carrito-button {
 header.header-style div.nav-style button.carrito-button img.carrito-button__img-white {
   width: 35px;
 }
-header.header-style div.nav-style button.carrito-button p.suma-carrito {
+header.header-style div.nav-style button.carrito-button span.suma-carrito {
   align-self: flex-end;
   color: #FFFFFF;
   font-size: 12px;
@@ -166,7 +171,7 @@ header.header-style div.nav-style button.carrito-button div.cont-carrito {
   visibility: hidden;
   opacity: 0;
 }
-header.header-style div.nav-style button.carrito-button div.cont-carrito__visible {
+header.header-style div.nav-style button.carrito-button div.cont-carrito.visible {
   visibility: visible;
   opacity: 1;
 }
