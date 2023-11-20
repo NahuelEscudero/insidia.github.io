@@ -172,7 +172,12 @@ main.main-cont {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3rem;
+  padding-bottom: 2rem;
+}
+main.main-cont h2 {
+  text-align: center;
+  margin-top: 7.5rem;
+  margin-bottom: 2rem;
 }
 main.main-cont div.cont-carrito {
   display: none;
@@ -183,6 +188,7 @@ main.main-cont div.cont-carrito {
   z-index: 1;
   box-shadow: 0px 0px 100px 50px rgba(0, 0, 0, 0.7);
   overflow-y: auto;
+  margin: 0 auto;
 }
 main.main-cont div.cont-carrito div.product-card-carrito {
   display: grid;
@@ -190,6 +196,8 @@ main.main-cont div.cont-carrito div.product-card-carrito {
   box-shadow: 7px 7px 20px 0px rgba(0, 0, 0, 0.7);
   border-radius: 20px;
   width: 95%;
+  justify-content: center;
+  align-items: center;
 }
 main.main-cont div.cont-carrito div.product-card-carrito img.product-card-carrito__img {
   grid-area: img;
@@ -198,6 +206,7 @@ main.main-cont div.cont-carrito div.product-card-carrito img.product-card-carrit
 main.main-cont div.cont-carrito div.product-card-carrito h4.product-card-carrito__name {
   grid-area: nombre;
   font-size: 12px;
+  text-align: center;
 }
 main.main-cont div.cont-carrito div.product-card-carrito div.product-card-carrito__cant {
   grid-area: cant;
@@ -212,9 +221,15 @@ main.main-cont div.cont-carrito div.product-card-carrito div.product-card-carrit
   width: 1.5rem;
   height: 1.5rem;
   border: none;
+  background-color: #beb0b0;
+  border-radius: 50%;
+  cursor: pointer;
 }
 main.main-cont div.cont-carrito div.product-card-carrito div.product-card-carrito__cant button.product-card-carrito__cant-menos img.product-card-carrito__cant-menos-img {
   width: 1.5rem;
+}
+main.main-cont div.cont-carrito div.product-card-carrito div.product-card-carrito__cant p.product-card-carrito__cant-number {
+  font-weight: 700;
 }
 main.main-cont div.cont-carrito div.product-card-carrito div.product-card-carrito__cant button.product-card-carrito__cant-mas {
   display: flex;
@@ -223,6 +238,9 @@ main.main-cont div.cont-carrito div.product-card-carrito div.product-card-carrit
   width: 1.5rem;
   height: 1.5rem;
   border: none;
+  background-color: #beb0b0;
+  border-radius: 50%;
+  cursor: pointer;
 }
 main.main-cont div.cont-carrito div.product-card-carrito div.product-card-carrito__cant button.product-card-carrito__cant-mas img.product-card-carrito__cant-mas-img {
   width: 1.5rem;
@@ -244,14 +262,15 @@ main.main-cont div.cont-carrito div.product-card-carrito div.product-card-carrit
 }
 main.main-cont div.cont-carrito div.product-card-carrito div.product-card-carrito__delete button.product-card-carrito__delete-button {
   border-radius: 10px;
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
   background-color: #beb0b0;
   border: none;
   box-shadow: 2px 2px 10px #666666;
+  cursor: pointer;
 }
 main.main-cont div.cont-carrito div.product-card-carrito div.product-card-carrito__delete button.product-card-carrito__delete-button img.product-card-carrito__delete-button-img {
-  width: 2rem;
+  width: 1.5rem;
   vertical-align: middle;
 }
 main.main-cont div.cont-carrito.visible {
@@ -259,29 +278,33 @@ main.main-cont div.cont-carrito.visible {
   flex-direction: column;
   align-items: center;
   background-color: #F6F3F9;
-  gap: 20px;
+  gap: 2rem;
 }
-main.main-cont div.cont-carrito.visible:first-child {
+main.main-cont div.cont-carrito.visible:nth-child(2) {
   padding-top: 2rem;
+  padding-bottom: 2rem;
 }
-main.main-cont h2 {
-  margin-top: 120px;
+main.main-cont section.section-cont-products {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
 }
-main.main-cont div.product-card {
+main.main-cont section.section-cont-products div.product-card {
   width: 10rem;
   border-radius: 20px;
   background-color: #F6F3F9;
 }
-main.main-cont div.product-card h4.product-card__title {
+main.main-cont section.section-cont-products div.product-card h4.product-card__title {
   position: absolute;
   font-size: 14px;
   width: 9.5rem;
   text-align: center;
 }
-main.main-cont div.product-card img.product-card__img {
+main.main-cont section.section-cont-products div.product-card img.product-card__img {
   width: 100%;
 }
-main.main-cont div.product-card div.product-card-add {
+main.main-cont section.section-cont-products div.product-card div.product-card-add {
   display: flex;
   width: 100%;
   height: 55px;
@@ -291,14 +314,14 @@ main.main-cont div.product-card div.product-card-add {
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
 }
-main.main-cont div.product-card div.product-card-add p.product-card-add__precio {
+main.main-cont section.section-cont-products div.product-card div.product-card-add p.product-card-add__precio {
   font-weight: 800;
   font-size: 18px;
   color: #FFFFFF;
   width: 70%;
   text-align: center;
 }
-main.main-cont div.product-card div.product-card-add button.product-card-add__button {
+main.main-cont section.section-cont-products div.product-card div.product-card-add button.product-card-add__button {
   width: auto;
   all: initial;
   background-color: #5B5A5B;
@@ -309,21 +332,21 @@ main.main-cont div.product-card div.product-card-add button.product-card-add__bu
   text-align: center;
   cursor: pointer;
 }
-main.main-cont div.product-card div.product-card-add button.product-card-add__button img.product-card-add__button-img-white {
+main.main-cont section.section-cont-products div.product-card div.product-card-add button.product-card-add__button img.product-card-add__button-img-white {
   width: 30px;
 }
-main.main-cont div.product-card div.product-card-add button.product-card-add__button img.product-card-add__button-img-black {
+main.main-cont section.section-cont-products div.product-card div.product-card-add button.product-card-add__button img.product-card-add__button-img-black {
   display: none;
   width: 30px;
 }
-main.main-cont div.product-card div.product-card-add button.product-card-add__button:hover {
+main.main-cont section.section-cont-products div.product-card div.product-card-add button.product-card-add__button:hover {
   background-color: #F6F3F9;
 }
-main.main-cont div.product-card div.product-card-add button.product-card-add__button:hover img.product-card-add__button-img-white {
+main.main-cont section.section-cont-products div.product-card div.product-card-add button.product-card-add__button:hover img.product-card-add__button-img-white {
   display: none;
   width: 30px;
 }
-main.main-cont div.product-card div.product-card-add button.product-card-add__button:hover img.product-card-add__button-img-black {
+main.main-cont section.section-cont-products div.product-card div.product-card-add button.product-card-add__button:hover img.product-card-add__button-img-black {
   display: initial;
   justify-self: center;
 }
