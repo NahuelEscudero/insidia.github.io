@@ -209,14 +209,7 @@ header.header-style {
                 font-weight: $font-widht-semibold;
                 border-color: $color-quaternary;
             }
-            div.cont-carrito {
-                visibility: hidden;
-                opacity: 0;
-            }
-            div.cont-carrito.visible {
-                visibility: visible;
-                opacity: 1;
-            }
+            
         }
     }
 }
@@ -228,9 +221,118 @@ main.main-cont {
     flex-direction: column;
     align-items: center;
     gap: 3rem;
+
+     //CARRITO
+    div.cont-carrito {
+        display: none;
+        position: fixed;
+        top: 6rem;
+        width: 85%;
+        height: calc(100vh - 6rem);
+        z-index: 1;
+        box-shadow: 0px 0px 100px 50px rgba(0,0,0,0.7);
+        overflow-y: auto;
+        div.product-card-carrito {
+            display: grid;
+            grid-template-areas: 
+            "img nombre nombre"
+            "img cant eliminar"
+            "img total eliminar";
+            box-shadow: 7px 7px 20px 0px rgba(0,0,0,0.7);
+            border-radius: 20px;
+            width: 95%;
+            img.product-card-carrito__img {
+                grid-area: img;
+                width: 4.5rem;
+            }
+            h4.product-card-carrito__name {
+                grid-area: nombre;
+                font-size: $font-size-xs;
+            }
+            div.product-card-carrito__cant {
+                grid-area: cant;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                small.product-card-carrito__cant-title {
+
+                }
+                button.product-card-carrito__cant-menos {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    border: none;
+                    img.product-card-carrito__cant-menos-img {
+                        width: 1.5rem;
+                    }
+                }
+                p.product-card-carrito__cant-number {
+
+                }
+                button.product-card-carrito__cant-mas {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    border: none;
+                    img.product-card-carrito__cant-mas-img {
+                        width: 1.5rem;
+                    }
+                }
+            }
+            div.product-card-carrito__total {
+                grid-area: total;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                small.product-card-carrito__total-title {
+                    vertical-align: middle;
+                }
+                p.product-card-carrito__number {
+
+                }
+            }
+            div.product-card-carrito__delete {
+                grid-area: eliminar;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                button.product-card-carrito__delete-button {
+                    border-radius: 10px;
+                    width: 3rem;
+                    height: 3rem;
+                    background-color: #beb0b0;
+                    border: none;
+                    box-shadow: 2px 2px 10px #666666;
+                    img.product-card-carrito__delete-button-img {
+                        width: 2rem;
+                        vertical-align: middle;
+
+                    }
+                }
+            }
+        }
+    }
+    div.cont-carrito.visible {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: $color-quaternary;
+        gap: 20px;
+    }
+    div.cont-carrito.visible:first-child {
+        padding-top: 2rem;
+    }
+
+    //Titulo MAIN
     h2 {
         margin-top: 120px;
     }
+
+    //PRODUCT CARD
     div.product-card {
         width: 10rem;
         border-radius: 20px;

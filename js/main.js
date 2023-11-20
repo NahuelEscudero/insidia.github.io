@@ -1,5 +1,4 @@
 //BURGER BUTTON
-
 const buttonBurger = document.querySelector("#burgerButton");
 const navBar = document.querySelector("#navBar");
 const cerrarBurger = document.querySelector("#burger-menu__cerrar");
@@ -13,9 +12,7 @@ cerrarBurger.addEventListener("click", () => {
 });
 
 
-
 //CONTAINER PRODUCTOS
-
 const remeras = [
     {
         id: 1,
@@ -55,27 +52,101 @@ const remeras = [
     }
 ];
 
+// Funcion que devuelve un objeto con los datos del producto que se le pasa como argumento
+const prodAgregado = (producto) => {
+    return {
+        id: producto.id,
+        nombre: producto.nombre,
+        imagen: producto.imagen,
+        precio: producto.precio
+    };
+}
 
-
+//MAIN
 const mainCont = document.querySelector("#mainCont");
 
-
 //Titulo del MAIN
-
 const titleMain = document.createElement("h2");
 titleMain.innerHTML = "PRODUCTOS"
 mainCont.append(titleMain);
 
-//Creacion del carrito en el DOM
+//Llamo al boton para visualizar el carrito en el MAIN y al numero que me va a indicar que tengo productos agregados al carrito
+const verCarrito = document.querySelector("#carritoButton");
+const sumaCarrito = document.querySelector("#sumaCarrito");
 
+
+
+
+//Creacion del contenedor del carrito en el DOM
 const containerCarrito = document.createElement("div");
+containerCarrito.id = "contCarrito";
 containerCarrito.classList.add("cont-carrito");
-containerCarrito.innerHTML = "Soy un carrito de compras";
 
-mainCont.append(containerCarrito);
+verCarrito.addEventListener("click", () => {
+    containerCarrito.classList.toggle("visible");
+});
+
+// Selecciono al primer hijo de MAIN para ubicar el contenedor del carrito delante de todos los elementos
+const primerHijoMain = mainCont.firstChild;
+mainCont.insertBefore(containerCarrito, primerHijoMain);
 
 //Array inicializado de objetos, que van a ir en el carrito
 const carrito = [];
+
+// Funcion que agrega productos al carrito
+const agregarAlCarrito = (producto) => {
+    carrito.push(producto);
+}
+
+// Funcion que agrega productos al DOM
+const agregarProductoAlDOM = (producto) => {
+    const addCarritoButton = document.querySelector(`#addCarrito${producto.id}`);
+
+    if(addCarritoButton){
+        addCarritoButton.addEventListener("click", () => {
+            agregarAlCarrito(prodAgregado(producto));
+        });
+
+        const productCardCarrito = document.createElement("div");
+
+        productCardCarrito.classList.add("product-card-carrito");
+        productCardCarrito.innerHTML = `
+            <img src="${producto.imagen}" alt="${producto.nombre}" class="product-card-carrito__img">
+            <h4 class="product-card-carrito__name">${producto.nombre}</h4>
+            <div class="product-card-carrito__cant">
+                <small class="product-card-carrito__cant-title">Cant:</small>
+                <button id="restarProducto${producto.id}" class="product-card-carrito__cant-menos"><img src="./images/emojis/MENOS.png" alt="Descontar producto del carrito" class="product-card-carrito__cant-menos-img"></button>
+                <p id="cantSeleccionada" class="product-card-carrito__cant-number">0</p>
+                <button id="sumarProducto${producto.id}" class="product-card-carrito__cant-mas"><img src="./images/emojis/MAS.png" alt="Agregar producto al carrito" class="product-card-carrito__cant-mas-img"></button>
+            </div>
+            <div class="product-card-carrito__total">
+                <small class="product-card-carrito__total-title">Total:</small>
+                <p id="cantTotalSeleccionada" class="product-card-carrito__number"><b>$$$</b></p>
+            </div>
+            <div class="product-card-carrito__delete">
+                <button id="eliminarProdCarrito" class="product-card-carrito__delete-button">
+                    <img src="./images/emojis/ELIMINAR.png" alt="Eliminar del carrito" class="product-card-carrito__delete-button-img">
+                </button>
+            </div>
+        `
+
+        containerCarrito.append(productCardCarrito);
+    }
+
+    // sumarNumCarrito();
+}
+
+//Funcion que suma un numero al numerito del carrito por click hecho en el boton add-carrito de cada product card
+// const sumarNumCarrito = () => {
+//     if (addCarritoButton) {
+//         addCarritoButton.addEventListener("click", () => {
+//             valorActual += 1;
+//             sumaCarrito.innerHTML = valorActual;
+//             console.log(ValorActual);
+//         });
+//         console.log(ValorActual);
+//     }
+// }
 
 //Recorrido del array "remeras" para crear product cards
 remeras.forEach((item) => {
@@ -86,44 +157,25 @@ remeras.forEach((item) => {
         <img src="${item.imagen}" alt="Agregar ${item.nombre} al carrito" class="product-card__img">
         <div class="product-card-add">
             <p class="product-card-add__precio">${item.precio}</p>
-            <button id="addCarrito${item.id}"                            class="product-card-add__button">
+            <button id="addCarrito${item.id}" class="product-card-add__button">
             <img src="./images/emojis/ADD CARRITO W.png" alt="Agregar al carrito" class="product-card-add__button-img-white">
             <img src="./images/emojis/ADD CARRITO B.png" alt="Agregar al carrito" class="product-card-add__button-img-black">
             </button>
         </div>
     `
+
+
+
     mainCont.append(productCard);
+    
+    agregarProductoAlDOM(item);
 });
 
 
-const verCarrito = document.querySelector("#carritoButton");
-const sumaCarrito = document.querySelector("#sumaCarrito");
 
 
 
-const prodAgregado = (prod) => {
-    return {
-        id: prod.id,
-        nombre: prod.nombre,
-        imagen: prod.imagen,
-        precio: prod.precio
-    }
-}
 
-// Funcion que agrega productos al carrito
-const agregarAlCarrito = (producto) => {
-    const addCarritoButton = document.querySelector(`#addCarrito${producto.id}`);
-
-    carrito.push(producto);
-
-    if(addCarritoButton.addEventListener("click", agregarAlCarrito(prodAgregado(producto)))){
-        const productCardCarrito = document.createElement("div");
-        productCardCarrito.classList.add("product-card-carrito");
-        productCardCarrito.innerHTML = `
-
-        `
-    }
-}
 
 
 
@@ -145,7 +197,6 @@ const agregarAlCarrito = (producto) => {
 
 //     mainCont.append(productCard);
 
-//     const addCarritoButton = document.getElementById(`addCarrito${item.id}`);
 //     let valorActual = parseInt(sumaCarrito.innerHTML);
 //     const logValorActual = () => {
 //         if(verCarrito){
@@ -161,15 +212,7 @@ const agregarAlCarrito = (producto) => {
 //     }
 
 
-//     if (addCarritoButton) {
-
-//         addCarritoButton.addEventListener("click", () => {
-//             valorActual += 1;
-//             sumaCarrito.innerHTML = valorActual;
-//             logValorActual();
-//         });
-//         logValorActual();
-//     }
+//     
 
     
     
