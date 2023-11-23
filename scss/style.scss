@@ -237,64 +237,71 @@ main.main-cont {
         z-index: 1;
         box-shadow: 0px 0px 100px 50px rgba(0,0,0,0.7);
         overflow-y: auto;
-        margin: 0 auto;
-        div.product-card-carrito {
-            display: grid;
-            grid-template-areas: 
-            "img nombre nombre"
-            "img cant eliminar"
-            "img total eliminar";
+        p.carrito-vacio-text {
+            font-weight: $font-widht-bold;
+        }
+        div.card-carrito {
             box-shadow: 7px 7px 20px 0px rgba(0,0,0,0.7);
             border-radius: 20px;
             width: 95%;
+            display: flex;
             justify-content: center;
-            align-items: center;
-            img.product-card-carrito__img {
-                grid-area: img;
-                width: 4.5rem;
-            }
-            h4.product-card-carrito__name {
-                grid-area: nombre;
-                font-size: $font-size-xs;
-                text-align: center;
-            }
-            div.product-card-carrito__cant {
-                grid-area: cant;
-                display: flex;
+            div.product-card-carrito {
+                width: 95%;
+                display: grid;
+                grid-template-areas: 
+                "img nombre nombre"
+                "img cant eliminar"
+                "img total eliminar";
+                justify-content: center;
                 align-items: center;
-                justify-content: space-between;
-                small.product-card-carrito__cant-title {
-
+                img.product-card-carrito__img {
+                    grid-area: img;
+                    width: 4.5rem;
                 }
-                button.product-card-carrito__cant-menos {
+                h4.product-card-carrito__name {
+                    grid-area: nombre;
+                    font-size: $font-size-xs;
+                    text-align: center;
+                }
+                div.product-card-carrito__cant {
+                    grid-area: cant;
                     display: flex;
-                    justify-content: center;
                     align-items: center;
-                    width: 1.5rem;
-                    height: 1.5rem;
-                    border: none;
-                    background-color:#beb0b0;
-                    border-radius: 50%;
-                    cursor: pointer;
-                    img.product-card-carrito__cant-menos-img {
-                        width: 1.5rem;
+                    justify-content: space-between;
+                    small.product-card-carrito__cant-title {
+    
                     }
-                }
-                p.product-card-carrito__cant-number {
-                    font-weight: $font-widht-bold;
-                }
-                button.product-card-carrito__cant-mas {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    width: 1.5rem;
-                    height: 1.5rem;
-                    border: none;
-                    background-color:#beb0b0;
-                    border-radius: 50%;
-                    cursor: pointer;
-                    img.product-card-carrito__cant-mas-img {
+                    button.product-card-carrito__cant-menos {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
                         width: 1.5rem;
+                        height: 1.5rem;
+                        border: none;
+                        background-color:#beb0b0;
+                        border-radius: 50%;
+                        cursor: pointer;
+                        img.product-card-carrito__cant-menos-img {
+                            width: 1.5rem;
+                        }
+                    }
+                    p.product-card-carrito__cant-number {
+                        font-weight: $font-widht-bold;
+                    }
+                    button.product-card-carrito__cant-mas {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 1.5rem;
+                        height: 1.5rem;
+                        border: none;
+                        background-color:#beb0b0;
+                        border-radius: 50%;
+                        cursor: pointer;
+                        img.product-card-carrito__cant-mas-img {
+                            width: 1.5rem;
+                        }
                     }
                 }
             }

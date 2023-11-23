@@ -89,15 +89,35 @@ titleMain.innerHTML = "PRODUCTOS"
 mainCont.insertBefore(titleMain, containerCarrito);
 
 //Array de productos que van a ir en el carrito
-const carrito = [];
+let carrito = [];
 
 // Funcion que agrega productos al carrito
 const agregarAlCarrito = producto => {
     carrito.push(producto);
 }
 
-// Funcion que agrega productos al DOM
-const agregarProductoAlDOM = producto => {
+// // Funcion que agrega un producto al Local Storage
+// const agregarProdAlCarritoLS = producto => {
+//     localStorage.setItem(`producto${producto.id}`, JSON.stringify(producto));
+// }
+
+// // Funcion que obtiene un producto del Local Storage
+// const getObjectProdLS = producto => {
+//     return JSON.parse(localStorage.getItem(`producto${producto.id}`));
+// }
+
+//Funcion para guardar en Local Storage
+const guardarEnLS = (clave, valor) => {localStorage.setItem(clave, valor)};
+
+//Funcion que agrega productos al carrito LS
+const agregarProdAlCarritoLS = producto => {
+    for (const producto of carrito) {
+        guardarEnLS(`producto${producto.id}`, JSON.stringify(producto));
+    }
+}
+
+// Funcion que agrega productos al DOM en el carrito
+const agregarProductoAlCarritoDOM = producto => {
     const addCarritoButton = document.querySelector(`#addCarrito${producto.id}`);
 
     if(addCarritoButton){
@@ -105,8 +125,10 @@ const agregarProductoAlDOM = producto => {
             agregarAlCarrito(prodAgregado(producto));
 
             let precioProd = producto.precio;
+            const cardCarrito = document.createElement("div");
             const productCardCarrito = document.createElement("div");
 
+            cardCarrito.classList.add("card-carrito");
             productCardCarrito.classList.add("product-card-carrito");
             productCardCarrito.innerHTML = `
                 <img src="${producto.imagen}" alt="${producto.nombre}" class="product-card-carrito__img">
@@ -128,30 +150,31 @@ const agregarProductoAlDOM = producto => {
                 </div>
             `
 
-            containerCarrito.append(productCardCarrito);
-            
+            containerCarrito.append(cardCarrito);
+            cardCarrito.append(productCardCarrito);
+            agregarProdAlCarritoLS(producto);
         });
     }
     sumarNumCarrito(producto);
+    
     // sumarProdCarrito(producto);
 }
 
 //Funcion que suma productos dentro del carrito
-
-const sumarProdCarrito = producto => {
-    const numCantCarrito = document.querySelector("#cantSeleccionada");
-    const sumarProdCarritoButton = document.querySelector(`#sumarProducto${producto.id}`);
-    let valorActualSeleccionado = parseInt(numCantCarrito.innerHTML);
+// const sumarProdCarrito = producto => {
+//     const numCantCarrito = document.querySelector("#cantSeleccionada");
+//     const sumarProdCarritoButton = document.querySelector(`#sumarProducto${producto.id}`);
+//     let valorActualSeleccionado = parseInt(numCantCarrito.innerHTML);
 
     
-    if (sumarProdCarritoButton) {
-        sumarProdCarritoButton.addEventListener("click", () => {
-            valorActualSeleccionado += 1;
+//     if (sumarProdCarritoButton) {
+//         sumarProdCarritoButton.addEventListener("click", () => {
+//             valorActualSeleccionado += 1;
             
-            numCantCarrito.innerHTML = valorActualSeleccionado;
-        });
-    }
-}
+//             numCantCarrito.innerHTML = valorActualSeleccionado;
+//         });
+//     }
+// }
 
 //Funcion que resta productos dentro del carrito
 
@@ -161,8 +184,25 @@ const precioTotalProd = (precio, multip) => {
     return precio * multip;
 }
 
+//Obtengo el valor actual del elemento sumaCarrito, y lo guardo en el localStorage gracias a la funcion sumarNumCarrito
+let valorActual = parseInt(localStorage.getItem("numCarrito")) || 0;
+sumaCarrito.innerHTML = valorActual;
+
+//Creo elemento p que indica que el carrito esta vacio
+const carritoVacio = document.createElement("p");
+carritoVacio.classList.add("carrito-vacio-text");
+carritoVacio.innerHTML = "¡EL CARRITO ESTA VACIO!"
+
+//Funcion para indicar que el producto esta vacio si el numero que se le pasa como parametro es igual a 0
+const indicadorCarritoVacio = () => {
+    if(carrito.length == 0) {
+        containerCarrito.append(carritoVacio);
+    } else {
+        containerCarrito.removeChild(carritoVacio);
+    }
+}
+
 // Funcion que suma un numero al numerito del carrito por click hecho en el boton add-carrito de cada product card
-let valorActual = parseInt(sumaCarrito.innerHTML);
 const sumarNumCarrito = producto => {
     const addCarritoButton = document.querySelector(`#addCarrito${producto.id}`);
 
@@ -170,8 +210,13 @@ const sumarNumCarrito = producto => {
         addCarritoButton.addEventListener("click", () => {
             valorActual += 1;
             sumaCarrito.innerHTML = valorActual;
+            
+            localStorage.setItem("numCarrito", JSON.stringify(valorActual));
+
+            indicadorCarritoVacio();
         });
     }
+    indicadorCarritoVacio();
 }
 
 //Recorrido del array "remeras" para crear product cards
@@ -191,5 +236,5 @@ remeras.forEach((item) => {
     `
 
     containerProducts.append(productCard);
-    agregarProductoAlDOM(item);
+    agregarProductoAlCarritoDOM(item);
 });
