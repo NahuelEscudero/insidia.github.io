@@ -1,3 +1,12 @@
+class Producto {
+    constructor (producto) {
+        this.id = producto.id;
+        this.imagen = producto.imagen;
+        this.nombre = producto.nombre;
+        this.precio = producto.precio;
+    }
+}
+
 
 //CONTAINER PRODUCTOS
 const remeras = [
@@ -96,23 +105,43 @@ const agregarAlCarrito = producto => {
     carrito.push(producto);
 }
 
-// // Funcion que agrega un producto al Local Storage
-// const agregarProdAlCarritoLS = producto => {
-//     localStorage.setItem(`producto${producto.id}`, JSON.stringify(producto));
-// }
+//Defino carritoEnLS y una funcion que guarda en Local Storage
+const carritoEnLS = JSON.parse(localStorage.getItem("carritoEnLS"));
+const guardarLocalStorage = (clave, valor) => { localStorage.setItem(clave, valor) }
 
-// // Funcion que obtiene un producto del Local Storage
-// const getObjectProdLS = producto => {
-//     return JSON.parse(localStorage.getItem(`producto${producto.id}`));
-// }
-
-//Funcion para guardar en Local Storage
-const guardarEnLS = (clave, valor) => {localStorage.setItem(clave, valor)};
-
-//Funcion que agrega productos al carrito LS
-const agregarProdAlCarritoLS = producto => {
-    for (const producto of carrito) {
-        guardarEnLS(`producto${producto.id}`, JSON.stringify(producto));
+function recuperarDatosCarrito() {
+    if(carritoEnLS){
+        carrito = carritoEnLS;
+        carrito.forEach((item) => {
+            let precioProd = item.precio;
+            const cardCarrito = document.createElement("div");
+            const productCardCarrito = document.createElement("div");
+    
+            cardCarrito.classList.add("card-carrito");
+            productCardCarrito.classList.add("product-card-carrito");
+            productCardCarrito.innerHTML = `
+                <img src="${item.imagen}" alt="${item.nombre}" class="product-card-carrito__img">
+                <h4 class="product-card-carrito__name">${item.nombre}</h4>
+                <div class="product-card-carrito__cant">
+                    <small class="product-card-carrito__cant-title">Cant:</small>
+                    <button id="restarProducto${item.id}" class="product-card-carrito__cant-menos"><img src="./images/emojis/MENOS.png" alt="Descontar producto del carrito" class="product-card-carrito__cant-menos-img"></button>
+                    <p id="cantSeleccionada" class="product-card-carrito__cant-number">0</p>
+                    <button id="sumarProducto${item.id}" class="product-card-carrito__cant-mas"><img src="./images/emojis/MAS.png" alt="Agregar producto al carrito" class="product-card-carrito__cant-mas-img"></button>
+                </div>
+                <div class="product-card-carrito__total">
+                    <small class="product-card-carrito__total-title">Total:</small>
+                    <p id="precioTotalSeleccionado" class="product-card-carrito__number"><b>${precioProd}</b></p>
+                </div>
+                <div class="product-card-carrito__delete">
+                    <button id="eliminarProdCarrito" class="product-card-carrito__delete-button">
+                        <img src="./images/emojis/ELIMINAR.png" alt="Eliminar del carrito" class="product-card-carrito__delete-button-img">
+                    </button>
+                </div>
+            `
+    
+            containerCarrito.append(cardCarrito);
+            cardCarrito.append(productCardCarrito);
+        })
     }
 }
 
@@ -152,11 +181,11 @@ const agregarProductoAlCarritoDOM = producto => {
 
             containerCarrito.append(cardCarrito);
             cardCarrito.append(productCardCarrito);
-            agregarProdAlCarritoLS(producto);
+            guardarLocalStorage("carritoEnLS", JSON.stringify(carrito));
         });
     }
+    recuperarDatosCarrito();
     sumarNumCarrito(producto);
-    
     // sumarProdCarrito(producto);
 }
 
@@ -199,6 +228,7 @@ const indicadorCarritoVacio = () => {
         containerCarrito.append(carritoVacio);
     } else {
         containerCarrito.removeChild(carritoVacio);
+
     }
 }
 
